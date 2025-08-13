@@ -29,7 +29,7 @@ def find_data_path():
 @st.cache_resource(show_spinner=False)
 def load_model():
     try:
-        model = joblib.load('model.pkl')
+        model = joblib.load('../NoteBooks/model.pkl')
         return model
     except Exception as e:
         return None
