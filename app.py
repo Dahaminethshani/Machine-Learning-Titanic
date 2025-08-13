@@ -84,13 +84,16 @@ if page == "Overview":
 elif page == "Data Exploration":
     st.title("Data Exploration")
     if df is None:
-        st.error("Dataset not found. Place `Titanic-Dataset.csv` in `data/` or project root.")
+        st.error("Dataset not found. Place `Titanic-Dataset.csv` in the `Data/` folder.")
     else:
         st.subheader("Dataset Overview")
         c1, c2, c3 = st.columns(3)
-        with c1: st.metric("Rows", len(df))
-        with c2: st.metric("Columns", len(df.columns))
-        with c3: st.metric("Missing Cells", int(df.isna().sum().sum()))
+        with c1:
+            st.metric("Rows", len(df))
+        with c2:
+            st.metric("Columns", len(df.columns))
+        with c3:
+            st.metric("Missing Cells", int(df.isna().sum().sum()))
 
         with st.expander("Show sample data", expanded=True):
             st.dataframe(df.head(20), use_container_width=True)
