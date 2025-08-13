@@ -1,0 +1,23 @@
+{
+  "target": "Survived",
+  "numeric_features": [
+    "Pclass",
+    "Age",
+    "SibSp",
+    "Parch",
+    "Fare"
+  ],
+  "categorical_features": [
+    "Sex",
+    "Embarked"
+  ],
+  "used_features": [
+    "Pclass",
+    "Sex",
+    "Age",
+    "SibSp",
+    "Parch",
+    "Fare",
+    "Embarked"
+  ]
+}
