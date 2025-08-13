@@ -263,7 +263,7 @@ st.sidebar.markdown("---")
 st.sidebar.subheader("Install Dependencies")
 if st.sidebar.button("Install scikit-learn"):
     with st.spinner("Installing..."):
-        os.system("pip install scikit-learn==<version>")
+        os.system("pip install scikit-learn==1.7.1")
     st.success("scikit-learn installed. Refresh the app to use it.")
 
 st.write(sklearn.__version__)
