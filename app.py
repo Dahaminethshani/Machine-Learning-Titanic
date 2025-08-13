@@ -1,4 +1,3 @@
-
 import os
 import json
 import joblib
@@ -6,6 +5,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import plotly.express as px
+import sklearn
 
 st.set_page_config(page_title="Titanic: ML Demo", layout="wide")
 
@@ -257,3 +257,13 @@ elif page == "Model Performance":
             st.image("roc_curve.png", caption="ROC Curve (hold‑out test set)")
         else:
             st.info("ROC curve image not found.")
+
+# ---------- Install scikit-learn ----------
+st.sidebar.markdown("---")
+st.sidebar.subheader("Install Dependencies")
+if st.sidebar.button("Install scikit-learn"):
+    with st.spinner("Installing..."):
+        os.system("pip install scikit-learn==<version>")
+    st.success("scikit-learn installed. Refresh the app to use it.")
+
+st.write(sklearn.__version__)
