@@ -16,9 +16,13 @@ DATA_POSSIBLE_PATHS = [
 ]
 
 def find_data_path():
+    checked_paths = []
     for p in DATA_POSSIBLE_PATHS:
-        if os.path.exists(p):
-            return p
+        abs_path = os.path.abspath(p)
+        checked_paths.append(abs_path)
+        if os.path.exists(abs_path):
+            return abs_path
+    st.sidebar.warning(f"Checked paths: {checked_paths}")
     return None
 
 # ---------- Load assets ----------
@@ -88,6 +92,7 @@ elif page == "Data Exploration":
     st.title("Data Exploration")
     if df is None:
         st.error("Dataset not found. Place `Titanic-Dataset.csv` in the `Data/` folder.")
+        st.info(f"Checked paths: {[os.path.abspath(p) for p in DATA_POSSIBLE_PATHS]}")
     else:
         st.subheader("Dataset Overview")
         c1, c2, c3 = st.columns(3)
