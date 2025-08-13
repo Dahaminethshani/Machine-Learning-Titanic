@@ -10,12 +10,7 @@ import plotly.express as px
 st.set_page_config(page_title="Titanic: ML Demo", layout="wide")
 
 # ---------- Helper paths ----------
-DATA_POSSIBLE_PATHS = [
-    'data/Titanic-Dataset.csv',
-    'Titanic-Dataset.csv',
-    './data/Titanic-Dataset.csv',
-    './Titanic-Dataset.csv'
-]
+DATA_POSSIBLE_PATHS = ['Data/Titanic-Dataset.csv']
 
 def find_data_path():
     for p in DATA_POSSIBLE_PATHS:
