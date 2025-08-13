@@ -28,10 +28,13 @@ def find_data_path():
 # ---------- Load assets ----------
 @st.cache_resource(show_spinner=False)
 def load_model():
+    model_path = os.path.abspath('model.pkl')
+    st.sidebar.info(f"Checked model path: {model_path}")
     try:
-        model = joblib.load('../NoteBooks/model.pkl')
+        model = joblib.load(model_path)
         return model
     except Exception as e:
+        st.sidebar.warning(f"Model load error: {e}")
         return None
 
 @st.cache_resource(show_spinner=False)
